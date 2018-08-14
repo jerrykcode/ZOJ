@@ -11,9 +11,11 @@ using namespace std;
 //封装在类中
 class StackAnagram {
 public:
-	//Constructor
+    //Constructor
     StackAnagram(string src, string target) : src(src), target(target) {}
-	//main中调用的函数
+    //Destructor
+    ~StackAnagram() {}
+    //main中调用的函数
     void anagram();
 private:
     stack<char> s;
