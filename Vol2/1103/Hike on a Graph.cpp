@@ -56,34 +56,35 @@ int bfs(Color **graph, int n, Status start) {
     return -1;
 }
 
-int main() {
+int main() 
+{
 	int n;
 	POS p1, p2, p3;
 	Color **graph;
 	while (1) {
-    	cin >> n;
-    	if (n == 0) break;
-    	for (int x = 0; x < 50; x++)
-    	    for (int y = 0; y < 50; y++)
-    	        for (int z = 0; z < 50; z++)
-    	            collected[x][y][z] = false;
-    	cin >> p1 >> p2 >> p3;
-    	p1--;p2--;p3--;
-    	graph = new Color*[n];
-    	for (int i = 0; i < n; i++) {
-    	    graph[i] = new Color[n];
-    	    for (int j = 0; j < n; j++)
-    	        cin >> graph[i][j];
-    	}
-    	Status start(p1, p2, p3, 0);
-    	int step = bfs(graph, n, start);
-    	if (step == -1)
-    	    cout << "impossible" << endl;
-    	else 
-    	    cout << step << endl;
-    	for (int i = 0; i < n; i++)
-    	    free(graph[i]);
-    	free(graph);
+		cin >> n;
+		if (n == 0) break;
+		for (int x = 0; x < 50; x++)
+		    for (int y = 0; y < 50; y++)
+			for (int z = 0; z < 50; z++)
+			    collected[x][y][z] = false;
+		cin >> p1 >> p2 >> p3;
+		p1--;p2--;p3--;
+		graph = new Color*[n];
+		for (int i = 0; i < n; i++) {
+		    graph[i] = new Color[n];
+		    for (int j = 0; j < n; j++)
+			cin >> graph[i][j];
+		}
+		Status start(p1, p2, p3, 0);
+		int step = bfs(graph, n, start);
+		if (step == -1)
+		    cout << "impossible" << endl;
+		else 
+		    cout << step << endl;
+		for (int i = 0; i < n; i++)
+		    free(graph[i]);
+		free(graph);
 	}
 	return 0;
 }
